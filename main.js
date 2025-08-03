@@ -61,13 +61,22 @@ const personalMovieDb = {
       }
    },
    writeYourGenres: function () {
-      for (let i = 1; i < 4; i++) {
-         let genre = prompt(`Ваш любимый жанр под номером ${i}`);
-         if (genre == "" || genre == null) {
+      for (let i = 1; i < 2; i++) {
+         // let genre = prompt(`Ваш любимый жанр под номером ${i}`);
+         // if (genre == "" || genre == null) {
+         //    console.log("Не корректные данные");
+         //    i--;
+         // } else {
+         //    personalMovieDb.genres[i - 1] = genre;
+         // }
+
+         let genres = prompt(`Введите ваши любимые жанры через запятую`).toLowerCase();
+         if (genres == "" || genres == null) {
             console.log("Не корректные данные");
             i--;
          } else {
-            personalMovieDb.genres[i - 1] = genre;
+            personalMovieDb.genres = genres.split(", ");
+            personalMovieDb.genres.sort();
          }
       }
 
